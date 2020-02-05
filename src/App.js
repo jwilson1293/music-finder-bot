@@ -71,11 +71,14 @@ const App = () => {
                 <p>{song.artists.map(artist => artist.name).join(', ')}</p>
                 <p>{song.album.name}</p>
                 {playlist && <p><small>From playlist: {playlist.name}</small></p>}
+                <p><small><a href={song.external_urls.spotify}>Listen Here</a></small></p>
               </>
               : <>
                 <img src={music} alt="music notes" />
                 <p>This is my neat music bot thing.</p>
-                <p><TextField required label="Username" value={username} onChange={handleUsernameChange} variant="outlined" /></p>
+                <div style={{marginTop: "10px", marginBottom: "10px"}}>
+                  <TextField required label="Username" value={username} onChange={handleUsernameChange} variant="outlined" />
+                </div>
                 {error && <p><small style={{color: '#cc0000'}}>{error}</small></p>}
               </>
             }
