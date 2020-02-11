@@ -25,6 +25,10 @@ const App = () => {
           const randomIndex = Math.floor(Math.random() * randomPlaylist.tracks.total);
           setPlaylist(randomPlaylist);
           fetchSong(randomPlaylist, randomIndex);
+        }, 
+        error: response => {
+          console.log(response)
+          setError(response.responseJSON.error.message);
         }
       });
     } else {
